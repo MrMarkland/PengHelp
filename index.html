@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical Day + Study Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <header>
+    <h1>Clinical Day + After-4 Study Tracker</h1>
+    <p>Track daytime patient care, after-4 study, and graduation progress.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Graduation Countdown</h2>
+      <p>Target Graduation Date: <strong>November 10, 2027</strong></p>
+
+      <div class="countdown">
+        <div><strong id="days">0</strong><span>Days</span></div>
+        <div><strong id="hours">0</strong><span>Hours</span></div>
+        <div><strong id="minutes">0</strong><span>Minutes</span></div>
+        <div><strong id="seconds">0</strong><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="card stats">
+      <div><strong id="totalDays">0</strong><span>Days Logged</span></div>
+      <div><strong id="totalPatients">0</strong><span>Patients Seen</span></div>
+      <div><strong id="totalStudyHours">0</strong><span>Study Hours</span></div>
+      <div><strong id="totalTasks">0</strong><span>Clinical Tasks</span></div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Daytime Clinical Work</h2>
+
+        <label>Date</label>
+        <input type="date" id="date" />
+
+        <label>Patients Seen</label>
+        <input type="number" id="patients" min="0" placeholder="Example: 8" />
+
+        <label>Clinical Tasks</label>
+        <div class="checkboxes">
+          <label><input type="checkbox" value="Talked with patients" class="clinicalTask" /> Talked with patients</label>
+          <label><input type="checkbox" value="Examined patients" class="clinicalTask" /> Examined patients</label>
+          <label><input type="checkbox" value="Took blood" class="clinicalTask" /> Took blood</label>
+          <label><input type="checkbox" value="Inserted IVs" class="clinicalTask" /> Inserted IVs</label>
+          <label><input type="checkbox" value="Observed procedures" class="clinicalTask" /> Observed procedures</label>
+          <label><input type="checkbox" value="Documented notes" class="clinicalTask" /> Documented notes</label>
+        </div>
+
+        <label>Clinical Notes</label>
+        <textarea id="clinicalNotes" placeholder="What did you do or learn today?"></textarea>
+      </div>
+
+      <div class="card">
+        <h2>After-4 PM Study Tracker</h2>
+
+        <label>Study Topic</label>
+        <input type="text" id="studyTopic" placeholder="Example: Cardiology, anatomy, pharmacology" />
+
+        <label>Study Hours After 4 PM</label>
+        <input type="number" id="studyHours" min="0" step="0.25" placeholder="Example: 2.5" />
+
+        <label>Study Method</label>
+        <select id="studyMethod">
+          <option value="">Select method</option>
+          <option>Reading notes</option>
+          <option>Flashcards</option>
+          <option>Practice questions</option>
+          <option>Videos</option>
+          <option>Group study</option>
+          <option>Reviewing cases</option>
+          <option>Other</option>
+        </select>
+
+        <label>Study Notes</label>
+        <textarea id="studyNotes" placeholder="What did you study after 4 PM?"></textarea>
+
+        <button onclick="saveEntry()">Save Entry</button>
+        <button class="danger" onclick="clearLocalData()">Clear Local Data</button>
+
+        <p id="statusMessage"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Local Browser History</h2>
+      <p>This shows entries saved on this browser. Google Sheet will store the permanent copy.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Clinical</th>
+            <th>Study</th>
+          </tr>
+        </thead>
+        <tbody id="logTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
