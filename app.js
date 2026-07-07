@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_hqTROkvn7auenwfEF4ldvr8-eBj_feC2P39cWjoex-VwVcUiWJYmX88N4k9As5_8lg/exec";
 
 const graduationDate = new Date("2027-11-10T00:00:00");
 
